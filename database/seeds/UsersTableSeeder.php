@@ -16,14 +16,14 @@ class UsersTableSeeder extends Seeder
         $myUser = new User();
         $myUser->name = 'Matrix';
         $myUser->email = 'matrix00@gmail.com';
-        $myUser->password = $faker->password();
+        $myUser->password = Hash::make('mammamia');
         $myUser->save();
 
         for ($i=0; $i < 10; $i++) {
             $user = new User();
             $user->name = $faker->userName();
             $user->email = $faker->unique()->email();
-            $user->password = $faker->password();
+            $user->password = Hash::make($faker->password());
             $user->save();
 
         }
