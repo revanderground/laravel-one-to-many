@@ -13,4 +13,8 @@ class Post extends Model
         'post_date',
         'post_image'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
