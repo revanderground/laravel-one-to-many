@@ -18,6 +18,10 @@ class CreateUserDetailsTable extends Migration
             $table->string('address');
             $table->string('phone', 20);
 
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
+
         });
     }
 
