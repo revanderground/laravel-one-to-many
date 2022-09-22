@@ -50,7 +50,7 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        $data['author'] = Auth::user()->name;
+        $data['user_id'] = Auth::id();
         $data['post_date'] = new DateTime();
 
         Post::create($data);
@@ -95,7 +95,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $data = $request->all();
 
-        $data['author'] = $post->author;
+        $data['user_id'] = Auth::id();
         $data['post_date'] = $post->post_date;
 
         $post->update($data);
