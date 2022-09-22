@@ -19,7 +19,7 @@
 
                     <div class="subtitle my-3">
                         Post with id: {{ $post->id }} | Post written on the: {{ $post->post_date }}
-                        by {{ $post->author }}
+                        by {{ $post->user->name }}
 
                     </div>
 
