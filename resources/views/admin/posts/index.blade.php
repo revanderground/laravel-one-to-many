@@ -25,6 +25,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Author</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Handle</th>
                   </tr>
                 </thead>
@@ -32,9 +33,9 @@
                     @forelse ($posts as $post)
 
                         <tr>
-                            <th scope="row">
+                            <td scope="row">
                                 {{ $post->id }}
-                            </th>
+                            </td>
 
                             <td>
                                 {{ $post->user->name }}
@@ -43,6 +44,15 @@
                             <td>
                                 {{ $post->title }}
                             </td>
+
+                            <td>
+                                <span class="badge badge-pill badge-info"
+                                style="color:white; background-color:{{ $post->category->color }}">
+                                    {{ $post->category->name }}
+                                </span>
+                            </td>
+
+
 
                             <td>
                                 <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-sm btn-primary">

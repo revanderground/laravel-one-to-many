@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-10 mx-auto">
+        <div class="col-8 mx-auto">
 
             <div class="card my-card">
                 <div class="card-body">
@@ -17,7 +17,15 @@
                         <img class = "w-50" src="{{ $post->post_image }}" alt="post-image">
                     </div>
 
-                    <div class="subtitle my-3">
+                    <div>
+                        Category:
+                        <span class="badge badge-pill badge-info"
+                        style="color:white; background-color:{{ $post->category->color }}">
+                            {{ $post->category->name }}
+                        </span>
+                    </div>
+
+                    <div class="card-subtitle fs-6 my-3">
                         Post with id: {{ $post->id }} | Post written on the: {{ $post->post_date }}
                         by {{ $post->user->name }}
 
