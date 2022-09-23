@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     private $validationRules = [
-        'title' => 'min:3|max:255|required|alpha|unique:posts,title',
+        'title' => 'min:3|max:255|required|unique:posts,title',
         'post_content' => 'min:5|required',
         'post_image' => 'active_url',
     ];
@@ -24,7 +24,7 @@ class PostController extends Controller
     public function index()
     {
         // $posts= Post::where('user_id', Auth::id())->get();
-        $posts = Auth:user()->posts;
+        $posts = Auth::user()->posts;
         return view('admin.posts.index', compact('posts'));
     }
 
