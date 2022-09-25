@@ -49,7 +49,8 @@
 
                                 <span class="badge badge-pill badge-info"
                                 style="color:white; background-color:{{ $category->color }}">
-                                    {{ $category->name }}
+                                    <a href="{{ route('admin.categories.show', $category->id) }}" style="text-decoration:none; color:white">
+                                        {{ $category->name }}</a>
                                 </span>
                             </td>
 

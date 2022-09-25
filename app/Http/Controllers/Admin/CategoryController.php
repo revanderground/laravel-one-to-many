@@ -99,7 +99,7 @@ class CategoryController extends Controller
 
         //salvataggio senza accesso post-fill
         $category->update($data);
-        return redirect()->route('admin.categories.show', compact('id'));
+        return redirect()->route('admin.categories.show', compact('category'));
 
     }
 
