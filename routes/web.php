@@ -30,8 +30,9 @@ Route::middleware(('auth'))
     //raggruppa varie rotte
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::get('/profile', 'HomeController@getProfile')->name('profile');
+        // Route::get('/profile', 'HomeController@getProfile')->name('profile');
         Route::resource('/posts', 'PostController');
+        Route::resource('/categories', 'CategoryController');
     });
 
 // Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('home');
