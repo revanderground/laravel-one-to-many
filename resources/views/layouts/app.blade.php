@@ -39,6 +39,11 @@
                             <a class="nav-link {{ request()->routeIs('admin.posts.index') ? 'active' : '' }}" href="{{ route('admin.posts.index') }}">Posts</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.categories.index') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">Categories</a>
+                        </li>
+
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -55,10 +60,6 @@
                             @endif
                         @else
 
-
-                        <li>
-                           <a class="nav-link" href="{{ route('admin.posts.create') }}">Add New post</a>
-                        </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

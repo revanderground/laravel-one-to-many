@@ -26,7 +26,11 @@
                     <th scope="col">Author</th>
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">
+                        <a href="{{ route('admin.posts.create')}}"
+                            class="btn btn-sm btn-outline-primary">
+                        Create new post</a>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
