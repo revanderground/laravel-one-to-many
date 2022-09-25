@@ -41,7 +41,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['slug']= Str::slug($data['name'], '-');
+        $data['slug'] = Str::slug($data['name'], '-');
         $newCategory = new Category();
 
         // salvataggio con accesso post-fill
@@ -51,6 +51,7 @@ class CategoryController extends Controller
 
         //salvataggio senza accesso post-fill
         $newCategory->create($data);
+
         return redirect()->route('admin.categories.index');
     }
 
@@ -63,7 +64,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return view('admin.categories.show',  compact('category'));
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -87,6 +88,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name'], '-');
+        $category = Category::findOrFail($id);
+        // salvataggio con accesso post-fill
+        // $newCategory->fill($data);
+        //qui posso fare quello che voglio
+        // $newCategory->save();
+
+        //salvataggio senza accesso post-fill
+        $category->update($data);
         return redirect()->route('admin.categories.show', compact('id'));
 
     }
