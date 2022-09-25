@@ -50,7 +50,7 @@
                                 <span class="badge badge-pill badge-info"
                                     @if (isset($post->category))
                                         style="color:white; background-color:{{ $post->category->color }}">
-                                        {{ $post->category->name }}
+                                        <a style="color:white; text-decoration:none" href="{{ route('admin.categories.show', $post->category->id) }}">{{ $post->category->name }}</a>
                                     @else
                                         style="background-color: lightgrey">
                                         -
