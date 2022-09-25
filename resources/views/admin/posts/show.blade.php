@@ -19,9 +19,15 @@
 
                     <div>
                         Category:
-                        <span class="badge badge-pill badge-info"
-                        style="color:white; background-color:{{ $post->category->color }}">
-                            {{ $post->category->name }}
+                            <span class="badge badge-pill badge-info"
+                            @if (isset($post->category))
+                                style="color:white; background-color:{{ $post->category->color }}">
+                                {{ $post->category->name }}
+                            @else
+                                style="background-color: lightgrey">
+                                -
+                            @endif
+
                         </span>
                     </div>
 

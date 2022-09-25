@@ -12,6 +12,28 @@
     @enderror
 </div>
 
+<div class="form-group py-3 py-3">
+    <label for="input-category">Category</label>
+    <select type="text" class="form-control" id="input-category" name="category">
+        <option value="">No category</option>
+        @foreach ($categories as $category)
+            <option value="{{  old('category'), $category->id }}"
+                @isset($post->category)
+                {{ $category->id === $post->category->id ? 'selected' : '' }}
+                @endisset
+                >
+                {{ $category->name }}
+            </option>
+        @endforeach
+    </select>
+
+    @error('category')
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+    @enderror
+</div>
+
 
 <div class="form-group py-3">
     <label for="input-post-content">Post content</label>
