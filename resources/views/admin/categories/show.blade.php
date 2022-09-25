@@ -4,9 +4,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-8 mx-auto">
+        <div class="mx-auto">
 
-            <div class="card my-card">
+            <div class="card my-card ">
                 <div class="card-body">
 
                     <div class="card-title text-center">
@@ -17,28 +17,57 @@
                             {{ $category->name }}
                         </h2>
                     </div>
-
-                    <div class="card-footer">
-                        <ul>
-                          @forelse ( $category->posts as $post)
-                            <li>
-                                <a href="{{ route('admin.posts.show', $post->id) }}">
-                                    {{ $post->title }}
-                                </a>
-                            </li>
-                          @empty
-                              <li>This category has no posts</li>
-                          @endforelse
-
-                        </ul>
-                    </div>
-
-
-
                 </div>
             </div>
+                <div>
+                        @forelse ( $category->posts as $post)
+
+                        <div class="card my-card  col-6 mx-auto my-5">
+                            <div class="card-body">
+
+                                <div class="card-title text-center">
+                                    <h2>{{ $post->title }}</h2>
+                                </div>
+
+                                <div class="card-image text-center my-3">
+                                    <img class = "w-50" src="{{ $post->post_image }}" alt="post-image">
+                                </div>
+
+                                <div>
+                                    Category:
+                                        <span class="badge badge-pill badge-info"
+                                        @if (isset($post->category))
+                                            style="color:white; background-color:{{ $post->category->color }}">
+                                            {{ $post->category->name }}
+                                        @else
+                                            style="background-color: lightgrey">
+                                            -
+                                        @endif
+
+                                    </span>
+                                </div>
+
+                                <div class="card-subtitle fs-6 my-3">
+                                    Post with id: {{ $post->id }} | Post written on the: {{ $post->post_date }}
+                                    by {{ $post->user->name }}
+
+                                </div>
+
+                                <div class="card-text my-3">
+                                    {{ $post->post_content }}
+                                </div>
+
+                             </div>
+                        </div>
+                        @empty
+                            <li>This category has no posts</li>
+                        @endforelse
+
+                </div>
 
 
+
+            </div>
         </div>
 
     </div>
