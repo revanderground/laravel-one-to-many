@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -104,9 +105,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the category from the selected post
      *
-     * @param  int  $id
+     * @param  int  $id selected post's id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,4 +115,6 @@ class CategoryController extends Controller
         Category::destroy($id);
         return redirect()->route('admin.categories.index');
     }
+
+
 }

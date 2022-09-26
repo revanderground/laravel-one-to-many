@@ -32,7 +32,9 @@ Route::middleware(('auth'))
         Route::get('/', 'HomeController@index')->name('home');
         // Route::get('/profile', 'HomeController@getProfile')->name('profile');
         Route::resource('/posts', 'PostController');
+        Route::patch('/posts/{id}/clear-category', 'PostController@clearCategory')->name('posts.clearCategory');
         Route::resource('/categories', 'CategoryController');
+
     });
 
 // Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('home');

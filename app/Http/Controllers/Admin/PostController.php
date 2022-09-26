@@ -119,4 +119,20 @@ class PostController extends Controller
 
         return redirect()->route('admin.posts.index')->with('deleted', 'The post ' . $post->title . '  has been deleted successfully');
     }
+
+      /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function clearCategory($id){
+        $post = Post::findOrFail($id);
+        $category_id= $post->category_id;
+        $post->category_id = null;
+        $post->save();
+
+        return redirect()->route('admin.categories.show', $category_id);
+    }
 }

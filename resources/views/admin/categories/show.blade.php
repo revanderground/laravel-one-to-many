@@ -57,6 +57,16 @@
                                     {{ $post->post_content }}
                                 </div>
 
+                                <div class="card-subtitle text-center">
+                                    <form class="d-inline" action="{{ route('admin.posts.clearCategory', $post->id) }}" method="post">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-warning">
+                                            Remove post from this category
+                                        </button>
+                                    </form>
+                                </div>
+
                              </div>
                         </div>
                         @empty
